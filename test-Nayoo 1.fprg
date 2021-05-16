@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sikha"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2564-05-15 12:38:18 AM"/>
+        <attribute name="created" value="c2lraGE7REVTS1RPUC1VR0dORkFDOzI1NjQtMDUtMTQ7MTA6MDk6NDYgUE07MjkwOQ=="/>
+        <attribute name="edited" value="c2lraGE7REVTS1RPUC1VR0dORkFDOzI1NjQtMDUtMTU7MTI6Mzg6MTggQU07NTszMDEw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Year, PV, r, n, PMT, interest, PVnew, withoutinterest, total" type="Real" array="False" size=""/>
+            <assign variable="Year" expression="1"/>
+            <assign variable="total" expression="0"/>
+            <output expression="&quot;&#3648;&#3591;&#3636;&#3609;&#3585;&#3641;&#3657; :&quot;" newline="True"/>
+            <input variable="PV"/>
+            <assign variable="PVnew" expression="PV"/>
+            <output expression="&quot;&#3629;&#3633;&#3605;&#3619;&#3634;&#3604;&#3629;&#3585;&#3648;&#3610;&#3637;&#3657;&#3618;&#3619;&#3657;&#3629;&#3618;&#3621;&#3632; : &quot;" newline="True"/>
+            <input variable="r"/>
+            <output expression="&quot;&#3619;&#3632;&#3618;&#3632;&#3648;&#3623;&#3621;&#3634;&#3594;&#3635;&#3619;&#3632;&#3648;&#3591;&#3636;&#3609;&#3585;&#3641;&#3657; (&#3611;&#3637;) : &quot;" newline="True"/>
+            <input variable="n"/>
+            <assign variable="PMT" expression="(r/100)*PV/(1-((1+(r/100))^(-n)))"/>
+            <while expression="Year&lt;=n">
+                <assign variable="interest" expression="PV*(r/100)"/>
+                <assign variable="withoutinterest" expression="PMT-interest"/>
+                <assign variable="PVnew" expression="PV-withoutinterest"/>
+                <output expression="&quot;---------------------------------------------------&quot;&amp;&quot;&#3611;&#3637;&#3607;&#3637;&#3656; : &quot; &amp; Year &amp;&quot;---------------------------------------------------&quot;" newline="True"/>
+                <output expression="&quot;&#3648;&#3591;&#3636;&#3609;&#3605;&#3657;&#3609;&#3588;&#3591;&#3648;&#3627;&#3621;&#3639;&#3629;&#3605;&#3657;&#3609;&#3611;&#3637; : &quot;&amp; PV" newline="True"/>
+                <output expression="&quot;&#3648;&#3591;&#3636;&#3609;&#3607;&#3637;&#3656;&#3592;&#3656;&#3634;&#3618;&#3651;&#3609;&#3591;&#3623;&#3604;&#3609;&#3633;&#3657;&#3609; : &quot;&amp;PMT" newline="True"/>
+                <output expression="&quot;&#3604;&#3629;&#3585;&#3648;&#3610;&#3637;&#3657;&#3618;&quot;&amp; r&amp;&quot;% : &quot;&amp;interest" newline="True"/>
+                <output expression="&quot;&#3648;&#3591;&#3636;&#3609;&#3607;&#3637;&#3656;&#3648;&#3627;&#3621;&#3639;&#3629;&#3592;&#3634;&#3585;&#3627;&#3633;&#3585;&#3604;&#3629;&#3585;&#3648;&#3610;&#3637;&#3657;&#3618; : &quot;&amp;withoutinterest" newline="True"/>
+                <output expression="&quot;&#3648;&#3591;&#3636;&#3609;&#3605;&#3657;&#3609;&#3588;&#3591;&#3648;&#3627;&#3621;&#3639;&#3629; &#3627;&#3621;&#3633;&#3591;&#3592;&#3634;&#3585; : &quot;&amp;PVnew" newline="True"/>
+                <assign variable="Year" expression="Year+1"/>
+                <assign variable="PV" expression="PVnew"/>
+                <assign variable="total" expression="total+PMT"/>
+            </while>
+            <output expression="&quot;&#3619;&#3623;&#3617;&#3648;&#3591;&#3636;&#3609;&#3607;&#3637;&#3656;&#3592;&#3656;&#3634;&#3618;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604; : &quot;&amp; total" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
